@@ -1,1 +1,29 @@
+# Dependencias
 node_modules/
+package-lock.json
+
+# Build y caché
+dist/
+.vite/
+.tanstack/
+.output/
+
+# Cloudflare (Wrangler)
+.wrangler/
+.dev.vars
+
+# Variables de entorno
+.env
+.env.*
+!.env.example
+
+# Logs y sistema
+*.log
+npm-debug.log*
+.DS_Store
+Thumbs.db
+
+# IDE
+.idea/
+.vscode/*
+!.vscode/extensions.json
