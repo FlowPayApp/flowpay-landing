@@ -4,6 +4,7 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion";
+import { Reveal } from "./reveal";
 
 const FAQ_ITEMS = [
   {
@@ -36,24 +37,28 @@ export function Faq() {
   return (
     <section id="faq" className="py-24 px-6 scroll-mt-24">
       <div className="max-w-3xl mx-auto">
-        <p className="text-sm font-bold uppercase tracking-widest text-primary mb-3 text-center">
-          Preguntas frecuentes
-        </p>
-        <h2 className="text-3xl md:text-4xl font-extrabold text-center mb-10 text-balance">
-          Respuestas directas
-        </h2>
-        <Accordion type="single" collapsible className="w-full">
-          {FAQ_ITEMS.map((item, i) => (
-            <AccordionItem key={item.q} value={`item-${i}`}>
-              <AccordionTrigger className="text-base font-semibold">
-                {item.q}
-              </AccordionTrigger>
-              <AccordionContent className="text-muted-foreground leading-relaxed">
-                {item.a}
-              </AccordionContent>
-            </AccordionItem>
-          ))}
-        </Accordion>
+        <Reveal>
+          <p className="text-sm font-bold uppercase tracking-widest text-primary mb-3 text-center">
+            Preguntas frecuentes
+          </p>
+          <h2 className="text-3xl md:text-4xl font-extrabold text-center mb-10 text-balance">
+            Respuestas directas
+          </h2>
+        </Reveal>
+        <Reveal delay={100}>
+          <Accordion type="single" collapsible className="w-full">
+            {FAQ_ITEMS.map((item, i) => (
+              <AccordionItem key={item.q} value={`item-${i}`}>
+                <AccordionTrigger className="text-base font-semibold hover:no-underline">
+                  {item.q}
+                </AccordionTrigger>
+                <AccordionContent className="text-muted-foreground leading-relaxed">
+                  {item.a}
+                </AccordionContent>
+              </AccordionItem>
+            ))}
+          </Accordion>
+        </Reveal>
       </div>
     </section>
   );

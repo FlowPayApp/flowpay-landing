@@ -68,11 +68,11 @@ function ChargeRow({
 /** Vista ilustrativa del panel; los montos y nombres son ficticios. */
 export function DashboardPreview() {
   return (
-    <div id="producto" className="relative fp-slide-up scroll-mt-24">
+    <div id="producto" className="relative scroll-mt-24">
       <p className="text-center text-xs text-muted-foreground mb-3 font-medium">
         Vista de ejemplo — datos ficticios, no clientes reales
       </p>
-      <div className="bg-card rounded-2xl shadow-2xl ring-1 ring-foreground/5 p-4 md:p-8 text-left">
+      <div className="fp-preview-shell bg-card rounded-2xl shadow-2xl ring-1 ring-foreground/5 p-4 md:p-8 text-left">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-10">
           <KPI label="Por cobrar" value="$14.250.000" />
           <KPI label="Vencido" value="$3.890.000" accent="overdue" />
