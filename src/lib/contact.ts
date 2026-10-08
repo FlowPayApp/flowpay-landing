@@ -1,6 +1,6 @@
 /** Correo para demo y contacto (configurable en .env). */
 export function getContactEmail(): string {
-  return import.meta.env.VITE_FLOWPAY_CONTACT_EMAIL?.trim() || "pablobarreraw@gmail.com";
+  return import.meta.env.VITE_FLOWPAY_CONTACT_EMAIL?.trim() || "contacto@geldflus.com";
 }
 
 export function demoMailto(subject = "Consulta GeldFlus"): string {
