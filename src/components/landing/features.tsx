@@ -2,48 +2,47 @@ import {
   MessageCircle,
   CreditCard,
   LineChart,
-  Users,
+  Store,
   FileSpreadsheet,
+  Users,
   type LucideIcon,
 } from "lucide-react";
-import { cn } from "@/lib/utils";
 import { Reveal } from "./reveal";
 
 const FEATURES: {
   icon: LucideIcon;
   title: string;
   desc: string;
-  lgSpan: 2 | 3;
 }[] = [
   {
     icon: LineChart,
     title: "Panel de cobranza",
-    desc: "KPIs de por cobrar, vencido y cobrado, más listado de cargos con estados claros.",
-    lgSpan: 2,
+    desc: "Por cobrar, vencido y cobrado, más la lista del día: lo que vence esta semana y lo que ya se pasó.",
   },
   {
-    icon: Users,
-    title: "Clientes y cargos",
-    desc: "Alta manual de clientes y cobros, con seguimiento por deudor.",
-    lgSpan: 2,
+    icon: Store,
+    title: "Sucursales",
+    desc: "Código, local, encargado, dirección, teléfono, correo y método de pago: contado, crédito, cheque o transferencia.",
   },
   {
     icon: FileSpreadsheet,
-    title: "Importación Excel",
-    desc: "Plantilla descargable para cargar clientes o distribuidores desde planilla.",
-    lgSpan: 2,
+    title: "Carga desde Excel",
+    desc: "La misma planilla de la red: CODIGO, SUCURSAL, NOMBRE, DIRECCION, TELEFONO, EMAIL y MPAGO.",
   },
   {
     icon: MessageCircle,
-    title: "Recordatorios por WhatsApp",
-    desc: "Enviamos recordatorios automáticos según fechas y plantillas. Si el cliente responde, guardamos el hilo en el historial del cobro.",
-    lgSpan: 3,
+    title: "Avisos por correo y WhatsApp",
+    desc: "Salen solos antes del vencimiento, el día y si hay mora. Si el local responde, el hilo queda en ese cobro y puedes contestar.",
   },
   {
     icon: CreditCard,
-    title: "Portal de pago Webpay",
-    desc: "Enlace único por cobro para que tu cliente pague con tarjeta vía Transbank.",
-    lgSpan: 3,
+    title: "Pago con Webpay",
+    desc: "Cada cobro tiene un enlace. El local paga con tarjeta vía Transbank, ve la factura si la adjuntaste, y no necesita cuenta.",
+  },
+  {
+    icon: Users,
+    title: "Equipo",
+    desc: "El administrador ve toda la red. Cada cobrador ve sus locales. Transferencia o cheque se marcan a mano y salen de la lista.",
   },
 ];
 
@@ -51,20 +50,13 @@ function Feature({
   icon: Icon,
   title,
   desc,
-  className,
 }: {
   icon: LucideIcon;
   title: string;
   desc: string;
-  className?: string;
 }) {
   return (
-    <div
-      className={cn(
-        "fp-card-lift p-8 rounded-2xl bg-card ring-1 ring-border h-full group",
-        className,
-      )}
-    >
+    <div className="fp-card-lift p-8 rounded-2xl bg-card ring-1 ring-border h-full group">
       <div className="size-12 bg-primary/10 rounded-xl mb-6 grid place-items-center text-primary transition-colors duration-300 group-hover:bg-primary/15">
         <Icon className="size-5 transition-transform duration-300 group-hover:scale-110" />
       </div>
@@ -79,28 +71,18 @@ export function Features() {
     <section className="py-24 px-6">
       <div className="max-w-7xl mx-auto">
         <Reveal className="max-w-2xl mb-16">
-          <p className="text-sm font-bold uppercase tracking-widest text-primary mb-3">
-            Qué incluye hoy
-          </p>
+          <p className="text-sm font-bold uppercase tracking-widest text-primary mb-3">Producto</p>
           <h2 className="text-4xl font-extrabold tracking-tight text-balance">
-            Lo que la plataforma hace por ti
+            Una sucursal, un monto, una fecha
           </h2>
           <p className="mt-4 text-muted-foreground text-pretty">
-            Funciones disponibles en el producto actual. Si algo no está listado aquí,
-            aún no está publicado.
+            El resto es seguimiento. Estas son las funciones que ya están en la app de geldflus.com.
           </p>
         </Reveal>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-6 gap-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
           {FEATURES.map((feature, index) => (
-            <Reveal
-              key={feature.title}
-              delay={index * 80}
-              className={cn(
-                feature.lgSpan === 2 ? "lg:col-span-2" : "lg:col-span-3",
-                index === FEATURES.length - 1 && "sm:col-span-2 lg:col-span-3",
-              )}
-            >
+            <Reveal key={feature.title} delay={index * 80}>
               <Feature icon={feature.icon} title={feature.title} desc={feature.desc} />
             </Reveal>
           ))}

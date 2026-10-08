@@ -3,7 +3,7 @@ export function renderErrorPage(): string {
 <html lang="es">
   <head>
     <meta charset="utf-8" />
-    <title>No se pudo cargar — FlowPay</title>
+    <title>No se pudo cargar — GeldFlus</title>
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <style>
       body { font: 15px/1.5 system-ui, -apple-system, sans-serif; background: #fafafa; color: #111; display: grid; place-items: center; min-height: 100vh; margin: 0; padding: 1.5rem; }

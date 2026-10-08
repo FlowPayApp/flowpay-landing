@@ -20,15 +20,11 @@ function KPI({
         ? "text-overdue"
         : "text-foreground";
   return (
-    <div
-      className={`p-6 rounded-2xl bg-secondary/60 ring-1 ring-border ${border}`}
-    >
+    <div className={`p-6 rounded-2xl bg-secondary/60 ring-1 ring-border ${border}`}>
       <p className="text-xs font-bold uppercase tracking-widest text-muted-foreground mb-1">
         {label}
       </p>
-      <p className={`text-2xl md:text-3xl font-bold font-mono ${valueColor}`}>
-        {value}
-      </p>
+      <p className={`text-2xl md:text-3xl font-bold font-mono ${valueColor}`}>{value}</p>
     </div>
   );
 }
@@ -53,9 +49,7 @@ function ChargeRow({
     <tr>
       <td className="py-4 font-semibold">{name}</td>
       <td className="py-4">
-        <span
-          className={`px-2.5 py-1 rounded-full text-[10px] font-bold uppercase ${cfg.cls}`}
-        >
+        <span className={`px-2.5 py-1 rounded-full text-[10px] font-bold uppercase ${cfg.cls}`}>
           {cfg.label}
         </span>
       </td>
@@ -70,43 +64,28 @@ export function DashboardPreview() {
   return (
     <div id="producto" className="relative scroll-mt-24">
       <p className="text-center text-xs text-muted-foreground mb-3 font-medium">
-        Vista de ejemplo — datos ficticios, no clientes reales
+        Vista de ejemplo — sucursales ficticias, no clientes reales
       </p>
       <div className="fp-preview-shell bg-card rounded-2xl shadow-2xl ring-1 ring-foreground/5 p-4 md:p-8 text-left">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-10">
-          <KPI label="Por cobrar" value="$14.250.000" />
-          <KPI label="Vencido" value="$3.890.000" accent="overdue" />
-          <KPI label="Cobrado (mes)" value="$28.400.000" accent="paid" />
+          <KPI label="Por cobrar" value="$4.820.000" />
+          <KPI label="Vencido" value="$1.140.000" accent="overdue" />
+          <KPI label="Cobrado" value="$6.350.000" accent="paid" />
         </div>
         <div className="overflow-x-auto">
           <table className="w-full text-sm min-w-[520px]">
             <thead className="border-b border-border">
               <tr className="text-muted-foreground text-xs uppercase font-bold tracking-wider">
-                <th className="pb-4 text-left">Cliente</th>
+                <th className="pb-4 text-left">Sucursal</th>
                 <th className="pb-4 text-left">Estado</th>
                 <th className="pb-4 text-right">Monto</th>
                 <th className="pb-4 text-right">Vencimiento</th>
               </tr>
             </thead>
             <tbody className="divide-y divide-border">
-              <ChargeRow
-                name="Ejemplo Constructora SpA"
-                status="overdue"
-                amount="$1.250.000"
-                date="12 mar 2025"
-              />
-              <ChargeRow
-                name="Ejemplo Servicios Ltda."
-                status="pending"
-                amount="$890.000"
-                date="28 mar 2025"
-              />
-              <ChargeRow
-                name="Ejemplo Comercial SA"
-                status="paid"
-                amount="$2.100.000"
-                date="15 mar 2025"
-              />
+              <ChargeRow name="Almacén Los Aromos" status="overdue" amount="$186.000" date="2 oct 2026" />
+              <ChargeRow name="Minimarket Central" status="pending" amount="$94.500" date="9 oct 2026" />
+              <ChargeRow name="Local Esquina Sur" status="paid" amount="$210.000" date="28 sep 2026" />
             </tbody>
           </table>
         </div>

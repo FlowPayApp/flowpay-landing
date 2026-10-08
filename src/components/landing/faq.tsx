@@ -8,28 +8,28 @@ import { Reveal } from "./reveal";
 
 const FAQ_ITEMS = [
   {
-    q: "¿Ya tienen clientes usando FlowPay?",
-    a: "Estamos en etapa inicial: el producto está en uso interno y con empresas piloto. En esta web no mostramos logos ni testimonios hasta tener casos reales que podamos citar.",
+    q: "¿Para quién es GeldFlus?",
+    a: "Para un distribuidor que cobra a locales: almacenes, sucursales y puntos de venta. El deudor en el sistema es la sucursal, con su código, encargado, teléfono y correo.",
   },
   {
-    q: "¿Cómo funciona el pago con Webpay?",
-    a: "Cada cobro puede tener un enlace de portal de pago. Tu cliente paga con tarjeta a través de Webpay (Transbank). El abono sigue las reglas y plazos de tu contrato comercial con Transbank; FlowPay no retiene el dinero.",
+    q: "¿El local tiene que crear una cuenta?",
+    a: "No. Recibe el enlace del cobro, ve el monto y la factura si la adjuntaste, y paga con Webpay. Tú sigues en el panel.",
   },
   {
-    q: "¿Mi cliente puede responder por WhatsApp?",
-    a: "Sí. FlowPay envía los recordatorios de forma automática y, cuando el cliente escribe de vuelta, guardamos esa respuesta en el historial del cobro (junto a los recordatorios enviados). No es un chat genérico para todo tu negocio: el registro va ligado a cada cobranza.",
+    q: "¿Qué pasa si paga por transferencia o cheque?",
+    a: "El cobrador lo marca como pagado y el cobro sale de la lista de pendientes. El enlace de Webpay es para cuando el local paga con tarjeta.",
   },
   {
-    q: "¿Puedo cobrar solo por transferencia?",
-    a: "Sí. Puedes registrar pagos manuales cuando el cliente transfiere. El portal Webpay es opcional por cobro, según cómo operes.",
+    q: "¿El local puede responder por WhatsApp?",
+    a: "Sí. El recordatorio sale solo y, si escribe de vuelta, la respuesta queda en el historial de ese cobro. Desde ahí puedes contestar mientras la conversación sigue abierta.",
   },
   {
     q: "¿Cuánto cuesta?",
-    a: "Aún no publicamos planes comerciales. Para conocer la plataforma, solicita una demo escribiendo a nuestro correo de contacto; cuando haya precios definidos, los comunicaremos con anticipación.",
+    a: "Esencial $39.000, Crecimiento $89.000 y Empresa $169.000 al mes. Los topes de sucursales y el equipo están en la sección de planes. Al registrarte eliges uno; activamos la cuenta y te enviamos la contraseña.",
   },
   {
-    q: "¿Mis datos están en Chile?",
-    a: "Operamos el producto para empresas chilenas. Para detalle de tratamiento de datos y proveedores (mensajería WhatsApp, pasarela de pago), escríbenos y te enviamos la información vigente.",
+    q: "¿Quién ve los cobros?",
+    a: "El administrador ve toda la red. Cada cobrador ve las sucursales que tiene asignadas.",
   },
 ] as const;
 

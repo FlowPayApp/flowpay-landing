@@ -3,7 +3,7 @@
 import { useEffect, useState } from "react";
 import { Menu } from "lucide-react";
 import { Logo } from "./logo";
-import { demoMailto } from "@/lib/contact";
+import { LOGIN_URL, REGISTER_URL } from "@/lib/site";
 import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
 import {
@@ -17,7 +17,7 @@ import {
 const NAV = [
   { href: "#producto", label: "Producto" },
   { href: "#como-funciona", label: "Cómo funciona" },
-  { href: "#demo", label: "Demo" },
+  { href: "#planes", label: "Planes" },
   { href: "#faq", label: "Preguntas" },
   { href: "#contacto", label: "Contacto" },
 ] as const;
@@ -55,12 +55,18 @@ export function Navbar() {
           </div>
         </div>
 
-        <div className="flex items-center gap-2 md:gap-4">
+        <div className="flex items-center gap-2 md:gap-3">
           <a
-            href={demoMailto()}
+            href={LOGIN_URL}
+            className="hidden sm:inline text-sm font-semibold px-4 py-2.5 rounded-lg hover:bg-secondary transition-colors"
+          >
+            Entrar
+          </a>
+          <a
+            href={REGISTER_URL}
             className="fp-btn-glow hidden sm:inline text-sm font-semibold bg-primary text-primary-foreground px-5 py-2.5 rounded-lg"
           >
-            Solicitar demo
+            Crear cuenta
           </a>
 
           <Sheet>
@@ -87,10 +93,16 @@ export function Navbar() {
                 ))}
                 <hr className="border-border my-2" />
                 <a
-                  href={demoMailto()}
+                  href={LOGIN_URL}
+                  className="inline-flex justify-center ring-1 ring-border font-semibold px-5 py-3 rounded-lg"
+                >
+                  Entrar
+                </a>
+                <a
+                  href={REGISTER_URL}
                   className="fp-btn-glow inline-flex justify-center bg-primary text-primary-foreground font-semibold px-5 py-3 rounded-lg"
                 >
-                  Solicitar demo
+                  Crear cuenta
                 </a>
               </div>
             </SheetContent>

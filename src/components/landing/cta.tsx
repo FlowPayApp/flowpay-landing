@@ -1,5 +1,5 @@
-import { ArrowRight, Mail } from "lucide-react";
-import { demoMailto } from "@/lib/contact";
+import { ArrowRight } from "lucide-react";
+import { REGISTER_URL } from "@/lib/site";
 import { Reveal } from "./reveal";
 
 export function CtaBand() {
@@ -10,18 +10,16 @@ export function CtaBand() {
           <div className="fp-cta-shine pointer-events-none" aria-hidden />
           <div className="relative z-10">
             <h2 className="text-4xl font-extrabold mb-6 text-balance">
-              Menos tiempo persiguiendo pagos
+              La mañana parte por lo vencido
             </h2>
             <p className="text-xl text-primary-foreground/80 mb-10 text-pretty max-w-xl mx-auto">
-              Si cobras a varios clientes con plazos distintos, FlowPay te ayuda a ordenar
-              la cartera y enviar recordatorios con enlace de pago.
+              Carga tus locales en geldflus.com. El aviso sale antes de que el cobro se enfríe.
             </p>
             <a
-              href={demoMailto()}
+              href={REGISTER_URL}
               className="fp-btn-glow group inline-flex items-center gap-2 px-10 py-5 bg-background text-primary font-bold rounded-xl text-lg shadow-xl"
             >
-              <Mail className="size-5" />
-              Solicitar demo{" "}
+              Crear cuenta
               <ArrowRight className="size-5 transition-transform duration-300 group-hover:translate-x-1" />
             </a>
           </div>

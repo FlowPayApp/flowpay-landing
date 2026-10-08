@@ -9,10 +9,7 @@ import {
 } from "@tanstack/react-router";
 
 import appCss from "../styles.css?url";
-
-const SITE_TITLE = "FlowPay — Cobranza para Pymes en Chile";
-const SITE_DESCRIPTION =
-  "Organiza cuentas por cobrar, recordatorios por WhatsApp con historial de respuestas y portal de pago con Webpay (Transbank).";
+import { SITE_DESCRIPTION, SITE_NAME, SITE_TITLE, SITE_URL } from "@/lib/site";
 
 function NotFoundComponent() {
   return (
@@ -78,20 +75,23 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { name: "viewport", content: "width=device-width, initial-scale=1" },
       { title: SITE_TITLE },
       { name: "description", content: SITE_DESCRIPTION },
-      { name: "author", content: "FlowPay" },
+      { name: "author", content: SITE_NAME },
       { property: "og:title", content: SITE_TITLE },
       { property: "og:description", content: SITE_DESCRIPTION },
+      { property: "og:url", content: SITE_URL },
       { property: "og:type", content: "website" },
       { property: "og:locale", content: "es_CL" },
       { name: "twitter:card", content: "summary" },
     ],
     links: [
       { rel: "stylesheet", href: appCss },
+      { rel: "icon", type: "image/png", href: "/favicon.png" },
+      { rel: "canonical", href: SITE_URL },
       { rel: "preconnect", href: "https://fonts.googleapis.com" },
       { rel: "preconnect", href: "https://fonts.gstatic.com", crossOrigin: "anonymous" },
       {
         rel: "stylesheet",
-        href: "https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap",
+        href: "https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,560;9..144,650&family=JetBrains+Mono:wght@400;500&family=Source+Sans+3:wght@400;500;600;700;800&display=swap",
       },
     ],
   }),
