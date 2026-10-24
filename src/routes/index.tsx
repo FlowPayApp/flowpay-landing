@@ -1,14 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { Navbar } from "@/components/landing/navbar";
-import { Hero } from "@/components/landing/hero";
-import { Integrations } from "@/components/landing/integrations";
-import { Features } from "@/components/landing/features";
-import { HowItWorks } from "@/components/landing/how-it-works";
-import { Pricing } from "@/components/landing/pricing";
-import { Faq } from "@/components/landing/faq";
-import { CtaBand } from "@/components/landing/cta";
-import { Contact } from "@/components/landing/contact";
-import { Footer } from "@/components/landing/footer";
+import { LandingPage } from "@/components/landing/page";
+import { structuredData } from "@/lib/landing-content";
 import { SITE_DESCRIPTION, SITE_TITLE, SITE_URL } from "@/lib/site";
 
 export const Route = createFileRoute("/")({
@@ -23,23 +15,10 @@ export const Route = createFileRoute("/")({
       { property: "og:locale", content: "es_CL" },
     ],
     links: [{ rel: "canonical", href: SITE_URL }],
+    scripts: structuredData().map((data) => ({
+      type: "application/ld+json",
+      children: JSON.stringify(data),
+    })),
   }),
-  component: Landing,
+  component: LandingPage,
 });
-
-function Landing() {
-  return (
-    <div className="min-h-screen bg-background text-foreground selection:bg-primary/20">
-      <Navbar />
-      <Hero />
-      <Integrations />
-      <Features />
-      <HowItWorks />
-      <Pricing />
-      <CtaBand />
-      <Faq />
-      <Contact />
-      <Footer />
-    </div>
-  );
-}
