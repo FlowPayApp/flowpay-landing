@@ -7,19 +7,19 @@ const PLANS = [
   {
     name: "Esencial",
     detail: "Para una operación chica que hoy cobra a mano.",
-    price: "$39.000",
+    price: "$89.000",
     features: [
       "Hasta 25 sucursales",
       "Recordatorios por correo y WhatsApp",
       "Enlace de pago con Webpay",
-      "1 administrador",
+      "2 administradores",
     ],
     highlight: false,
   },
   {
     name: "Crecimiento",
     detail: "Para quien ya recorre varias sucursales y necesita equipo.",
-    price: "$89.000",
+    price: "$189.000",
     features: [
       "Hasta 120 sucursales",
       "Todo lo de Esencial",
@@ -31,7 +31,7 @@ const PLANS = [
   {
     name: "Empresa",
     detail: "Para una red grande, con puesta en marcha acompañada.",
-    price: "$169.000",
+    price: "$349.000",
     features: [
       "Sucursales sin tope",
       "Todo lo de Crecimiento",

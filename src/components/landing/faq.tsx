@@ -25,7 +25,7 @@ const FAQ_ITEMS = [
   },
   {
     q: "¿Cuánto cuesta?",
-    a: "Esencial $39.000, Crecimiento $89.000 y Empresa $169.000 al mes. Los topes de sucursales y el equipo están en la sección de planes. Al registrarte eliges uno; activamos la cuenta y te enviamos la contraseña.",
+    a: "Esencial $89.000, Crecimiento $189.000 y Empresa $349.000 al mes. Los topes de sucursales y el equipo están en la sección de planes. Al registrarte eliges uno; activamos la cuenta y te enviamos la contraseña.",
   },
   {
     q: "¿Quién ve los cobros?",
