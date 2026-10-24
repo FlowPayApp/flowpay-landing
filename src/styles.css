@@ -34,21 +34,38 @@
   --color-paid: var(--paid);
   --color-pending: var(--pending);
   --color-overdue: var(--overdue);
-  --font-sans: 'Inter', ui-sans-serif, system-ui, sans-serif;
+  --font-sans: 'Source Sans 3', ui-sans-serif, system-ui, sans-serif;
+  --font-display: 'Fraunces', Georgia, serif;
+  --color-surface: rgb(var(--fp-surface));
+  --color-surface-card: rgb(var(--fp-surface-card));
+  --color-surface-border: rgb(var(--fp-surface-border));
+  --color-ink: rgb(var(--fp-ink));
+  --color-ink-muted: rgb(var(--fp-ink-muted));
+  --color-brand: rgb(var(--fp-brand));
+  --color-brand-soft: rgb(var(--fp-brand-soft));
+  --color-brand-hover: rgb(var(--fp-brand-hover));
   --font-mono: 'JetBrains Mono', ui-monospace, monospace;
   --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 :root {
   --radius: 0.75rem;
+  --fp-surface: 244 241 234;
+  --fp-surface-card: 255 252 248;
+  --fp-surface-border: 226 220 208;
+  --fp-ink: 28 25 23;
+  --fp-ink-muted: 107 100 92;
+  --fp-brand: 15 110 107;
+  --fp-brand-hover: 12 90 88;
+  --fp-brand-soft: 224 242 239;
   --background: oklch(0.995 0 0);
   --foreground: oklch(0.205 0.04 265);
   --card: oklch(1 0 0);
   --card-foreground: oklch(0.205 0.04 265);
   --popover: oklch(1 0 0);
   --popover-foreground: oklch(0.205 0.04 265);
-  --primary: oklch(0.546 0.214 263);
-  --primary-foreground: oklch(0.99 0 0);
+  --primary: #0f6e6b;
+  --primary-foreground: #fffcf8;
   --secondary: oklch(0.968 0.007 247);
   --secondary-foreground: oklch(0.205 0.04 265);
   --muted: oklch(0.968 0.007 247);
@@ -59,21 +76,29 @@
   --destructive-foreground: oklch(0.99 0 0);
   --border: oklch(0.205 0.04 265 / 0.08);
   --input: oklch(0.205 0.04 265 / 0.08);
-  --ring: oklch(0.546 0.214 263);
+  --ring: #0f6e6b;
   --paid: oklch(0.68 0.16 162);
   --pending: oklch(0.76 0.16 70);
   --overdue: oklch(0.64 0.22 25);
 }
 
 .dark {
+  --fp-surface: 18 20 18;
+  --fp-surface-card: 28 32 29;
+  --fp-surface-border: 52 58 54;
+  --fp-ink: 245 242 234;
+  --fp-ink-muted: 168 162 152;
+  --fp-brand: 20 118 114;
+  --fp-brand-hover: 32 142 136;
+  --fp-brand-soft: 22 48 46;
   --background: oklch(0.16 0.02 265);
   --foreground: oklch(0.98 0.003 247);
   --card: oklch(0.21 0.03 265);
   --card-foreground: oklch(0.98 0.003 247);
   --popover: oklch(0.21 0.03 265);
   --popover-foreground: oklch(0.98 0.003 247);
-  --primary: oklch(0.65 0.2 263);
-  --primary-foreground: oklch(0.16 0.02 265);
+  --primary: #147672;
+  --primary-foreground: #f4f1ea;
   --secondary: oklch(0.28 0.04 260);
   --secondary-foreground: oklch(0.98 0.003 247);
   --muted: oklch(0.28 0.04 260);
@@ -84,7 +109,7 @@
   --destructive-foreground: oklch(0.98 0.003 247);
   --border: oklch(1 0 0 / 0.1);
   --input: oklch(1 0 0 / 0.15);
-  --ring: oklch(0.65 0.2 263);
+  --ring: #8fd4cf;
 }
 
 @layer base {
@@ -99,6 +124,11 @@
     color: var(--color-foreground);
     font-family: var(--font-sans);
     -webkit-font-smoothing: antialiased;
+  }
+
+  h1, h2, h3, h4 {
+    font-family: var(--font-display);
+    letter-spacing: -0.03em;
   }
 
   @media (prefers-reduced-motion: reduce) {
@@ -165,7 +195,7 @@
   top: -12%;
   left: 50%;
   transform: translateX(-50%);
-  background: oklch(0.546 0.214 263 / 0.22);
+  background: color-mix(in oklab, #0f6e6b 28%, transparent);
   animation: fp-float-a 14s ease-in-out infinite;
 }
 
@@ -183,7 +213,7 @@
   height: min(300px, 55vw);
   bottom: 20%;
   left: -6%;
-  background: oklch(0.546 0.214 263 / 0.14);
+  background: color-mix(in oklab, #0f6e6b 18%, transparent);
   animation: fp-float-c 16s ease-in-out infinite;
 }
 
@@ -216,9 +246,9 @@
 .fp-text-gradient {
   background: linear-gradient(
     135deg,
-    oklch(0.48 0.22 263) 0%,
-    oklch(0.58 0.2 263) 50%,
-    oklch(0.52 0.18 290) 100%
+    #0c5a58 0%,
+    #0f6e6b 55%,
+    #1a8f86 100%
   );
   -webkit-background-clip: text;
   background-clip: text;
@@ -237,7 +267,7 @@
   transform: translateY(-4px);
   box-shadow:
     0 20px 40px -12px oklch(0.205 0.04 265 / 0.12),
-    0 0 0 1px oklch(0.546 0.214 263 / 0.08);
+    0 0 0 1px color-mix(in oklab, #0f6e6b 16%, transparent);
 }
 
 .fp-btn-glow {
@@ -248,7 +278,7 @@
 
 .fp-btn-glow:hover {
   transform: translateY(-2px);
-  box-shadow: 0 12px 32px -8px oklch(0.546 0.214 263 / 0.45);
+  box-shadow: 0 12px 32px -8px color-mix(in oklab, #0f6e6b 45%, transparent);
 }
 
 .fp-btn-glow::after {
@@ -293,7 +323,7 @@
   transform: translateY(-6px);
   box-shadow:
     0 32px 64px -16px oklch(0.205 0.04 265 / 0.18),
-    0 0 0 1px oklch(0.546 0.214 263 / 0.06);
+    0 0 0 1px color-mix(in oklab, #0f6e6b 12%, transparent);
 }
 
 /* —— CTA band —— */
