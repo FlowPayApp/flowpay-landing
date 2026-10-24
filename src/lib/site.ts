@@ -1,11 +1,11 @@
-/** La app ocupa geldflus.com. La landing vive en una ruta de ese mismo dominio. */
+/** La landing ocupa geldflus.com. La aplicación vive en el subdominio. */
 export const SITE_NAME = "GeldFlus";
 export const SITE_DOMAIN = "geldflus.com";
-export const SITE_PATH = "/landing";
-export const SITE_URL = `https://${SITE_DOMAIN}${SITE_PATH}`;
-export const LOGIN_URL = `https://${SITE_DOMAIN}/login`;
-export const REGISTER_URL = `https://${SITE_DOMAIN}/register`;
+export const SITE_URL = `https://www.${SITE_DOMAIN}`;
+export const APP_URL = `https://app.${SITE_DOMAIN}`;
+export const LOGIN_URL = `${APP_URL}/login`;
+export const REGISTER_URL = `${APP_URL}/register`;
 
-export const SITE_TITLE = "GeldFlus — cobra a tus sucursales";
+export const SITE_TITLE = "GeldFlus · Cobranza a plazo";
 export const SITE_DESCRIPTION =
-  "Para distribuidores: sucursales, cobros, recordatorios por correo y WhatsApp, y pago con Webpay. El local paga desde el enlace, sin crear una cuenta.";
+  "Cobranza a plazo de sus clientes, mes a mes. Aviso por WhatsApp y correo. Pago con tarjeta en Webpay y transferencia con Khipu.";

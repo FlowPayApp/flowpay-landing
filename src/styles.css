@@ -36,12 +36,28 @@
   --color-overdue: var(--overdue);
   --font-sans: 'Source Sans 3', ui-sans-serif, system-ui, sans-serif;
   --font-display: 'Fraunces', Georgia, serif;
+  --color-surface: rgb(var(--fp-surface));
+  --color-surface-card: rgb(var(--fp-surface-card));
+  --color-surface-border: rgb(var(--fp-surface-border));
+  --color-ink: rgb(var(--fp-ink));
+  --color-ink-muted: rgb(var(--fp-ink-muted));
+  --color-brand: rgb(var(--fp-brand));
+  --color-brand-soft: rgb(var(--fp-brand-soft));
+  --color-brand-hover: rgb(var(--fp-brand-hover));
   --font-mono: 'JetBrains Mono', ui-monospace, monospace;
   --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 :root {
   --radius: 0.75rem;
+  --fp-surface: 244 241 234;
+  --fp-surface-card: 255 252 248;
+  --fp-surface-border: 226 220 208;
+  --fp-ink: 28 25 23;
+  --fp-ink-muted: 107 100 92;
+  --fp-brand: 15 110 107;
+  --fp-brand-hover: 12 90 88;
+  --fp-brand-soft: 224 242 239;
   --background: oklch(0.995 0 0);
   --foreground: oklch(0.205 0.04 265);
   --card: oklch(1 0 0);
@@ -67,6 +83,14 @@
 }
 
 .dark {
+  --fp-surface: 18 20 18;
+  --fp-surface-card: 28 32 29;
+  --fp-surface-border: 52 58 54;
+  --fp-ink: 245 242 234;
+  --fp-ink-muted: 168 162 152;
+  --fp-brand: 20 118 114;
+  --fp-brand-hover: 32 142 136;
+  --fp-brand-soft: 22 48 46;
   --background: oklch(0.16 0.02 265);
   --foreground: oklch(0.98 0.003 247);
   --card: oklch(0.21 0.03 265);
