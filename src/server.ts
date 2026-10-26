@@ -25,6 +25,60 @@ function brandedErrorResponse(): Response {
   });
 }
 
+const PERMISSIONS_POLICY = [
+  "accelerometer=()",
+  "camera=()",
+  "geolocation=()",
+  "gyroscope=()",
+  "microphone=()",
+  "payment=()",
+  "usb=()",
+].join(", ");
+
+function requestIsHttps(request: Request): boolean {
+  const url = new URL(request.url);
+  if (url.protocol === "https:") return true;
+  const forwarded = request.headers.get("x-forwarded-proto") ?? "";
+  return forwarded.split(",")[0]?.trim().toLowerCase() === "https";
+}
+
+// TanStack escribe scripts en línea distintos en cada respuesta, así que script-src
+// no puede fijarse por hash. El resto de la política sí queda cerrado.
+function withSecurityHeaders(response: Response, request: Request): Response {
+  const headers = new Headers(response.headers);
+  const https = requestIsHttps(request);
+  const policy = [
+    "default-src 'self'",
+    "script-src 'self' 'unsafe-inline'",
+    "script-src-attr 'none'",
+    "style-src 'self' 'unsafe-inline' https://fonts.googleapis.com",
+    "font-src 'self' https://fonts.gstatic.com",
+    "img-src 'self' data:",
+    "connect-src 'self' https://fonts.googleapis.com https://fonts.gstatic.com",
+    "frame-src 'none'",
+    "object-src 'none'",
+    "base-uri 'self'",
+    "form-action 'self'",
+    "frame-ancestors 'none'",
+    https ? "upgrade-insecure-requests" : "",
+  ]
+    .filter(Boolean)
+    .join("; ");
+  headers.set("Content-Security-Policy", policy);
+  headers.set("X-Frame-Options", "DENY");
+  headers.set("Referrer-Policy", "strict-origin-when-cross-origin");
+  headers.set("X-Content-Type-Options", "nosniff");
+  headers.set("Permissions-Policy", PERMISSIONS_POLICY);
+  if (https) {
+    headers.set("Strict-Transport-Security", "max-age=31536000; includeSubDomains");
+  }
+  return new Response(response.body, {
+    status: response.status,
+    statusText: response.statusText,
+    headers,
+  });
+}
+
 function isCatastrophicSsrErrorBody(body: string, responseStatus: number): boolean {
   let payload: unknown;
   try {
@@ -71,10 +125,10 @@ export default {
     try {
       const handler = await getServerEntry();
       const response = await handler.fetch(request, env, ctx);
-      return await normalizeCatastrophicSsrResponse(response);
+      return withSecurityHeaders(await normalizeCatastrophicSsrResponse(response), request);
     } catch (error) {
       console.error(error);
-      return brandedErrorResponse();
+      return withSecurityHeaders(brandedErrorResponse(), request);
     }
   },
 };
