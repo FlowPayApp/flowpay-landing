@@ -184,12 +184,11 @@ export function LandingPage() {
           <div className="relative mx-auto max-w-6xl">
             <div className="mx-auto max-w-3xl text-center">
               <h1 className="font-display text-5xl font-medium leading-[1.05] tracking-tight text-balance sm:text-7xl">
-                <span className="block">La cobranza de sus clientes.</span>
-                <span className="block text-[#8fd4cf]">Del aviso al pago.</span>
+                <span className="block">Gestione y cobre a sus Clientes </span>
+                <span className="block text-[#8fd4cf]">En un instante</span>
               </h1>
               <p className="mx-auto mt-5 max-w-xl text-lg leading-relaxed text-[#f5f2ea]/75">
-                Locales o personas, cada mes. Un aviso por WhatsApp y correo, con enlace de pago. El estado, en su panel.
-              </p>
+                Cobra a tus clientes de manera segura, rápida y fácil. Avisos por WhatsApp y correo. Consulta el estado de cada cobro en su panel</p>
               <div className="mt-8 flex justify-center">
                 <a
                   href="#recorrido"
