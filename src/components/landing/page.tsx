@@ -48,8 +48,7 @@ const NAV = [
   { href: "#contacto", label: "Contacto" },
 ] as const;
 
-function mailHref() {
-  const subject = "Consulta · GeldFlus";
+function mailHref(subject = "Consulta · GeldFlus") {
   const body = "Empresa:\nCantidad de clientes:\n\n";
   return `mailto:${CONTACT}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
 }
@@ -337,16 +336,16 @@ export function LandingPage() {
         </section>
 
         <section id="planes" className="scroll-mt-4 px-4 py-20 sm:px-6">
-          <div className="mx-auto max-w-5xl">
+          <div className="mx-auto max-w-6xl">
             <h2 className="font-display text-3xl font-medium tracking-tight sm:text-4xl">Un producto. Tres escalas.</h2>
             <p className="mt-3 max-w-lg text-ink-muted">WhatsApp, correo, Webpay y Khipu, en todos.</p>
-            <div className="mt-8 grid items-stretch gap-4 md:grid-cols-3">
+            <div className="mt-8 grid items-stretch gap-4 md:grid-cols-2 lg:grid-cols-4">
               {PLANS.map((plan) => (
                 <article
                   key={plan.name}
-                  className={`flex h-full flex-col rounded-2xl border p-6 ${
+                  className={`flex flex-col rounded-2xl border p-6 ${
                     plan.highlight
-                      ? "border-brand bg-[#141716] text-[rgb(245_242_234)] dark:bg-[#0c0f0e] md:-translate-y-2"
+                      ? "border-brand bg-[#141716] text-[rgb(245_242_234)] dark:bg-[#0c0f0e] md:-mt-2"
                       : "border-surface-border bg-surface-card"
                   }`}
                 >
@@ -365,16 +364,48 @@ export function LandingPage() {
                       </li>
                     ))}
                   </ul>
-                  <a
-                    href={REGISTER_URL}
-                    className={`mt-6 inline-flex justify-center rounded-xl px-4 py-3 text-sm font-semibold ${
-                      plan.highlight ? "bg-brand text-white hover:bg-brand-hover" : "border border-surface-border hover:bg-surface"
-                    }`}
-                  >
-                    Comenzar
-                  </a>
+                  <div className="mt-auto pt-6">
+                    <a
+                      href={REGISTER_URL}
+                      className={`inline-flex w-full justify-center rounded-xl px-4 py-3 text-sm font-semibold ${
+                        plan.highlight ? "border border-transparent bg-brand text-white hover:bg-brand-hover" : "border border-surface-border hover:bg-surface"
+                      }`}
+                    >
+                      Comenzar
+                    </a>
+                  </div>
                 </article>
               ))}
+              <article className="flex h-full flex-col rounded-2xl border border-surface-border bg-surface-card p-6">
+                <h3 className="text-2xl font-semibold">Personalizado</h3>
+                <p className="mt-2 text-sm text-ink-muted">
+                  ¿Tiene más de 300 clientes?
+                </p>
+                <p className="mt-5 font-display text-4xl">A medida</p>
+                <p className="mt-5 text-sm leading-relaxed text-ink-muted">
+                  Habla con nuestro equipo comercial. Armamos un plan a la
+                  medida de su red.
+                </p>
+                <ul className="mt-5 space-y-2 text-sm">
+                  {["Más de 300 clientes", "Todo lo del plan Empresa"].map(
+                    (feature) => (
+                      <li key={feature} className="flex gap-2">
+                        <Check className="mt-0.5 size-4 shrink-0 text-brand dark:text-[#8fd4cf]" />
+                        <span>{feature}</span>
+                      </li>
+                    ),
+                  )}
+                </ul>
+                <div className="mt-auto pt-6">
+                  <a
+                    href={mailHref("Plan personalizado · GeldFlus")}
+                    className="inline-flex w-full items-center justify-center gap-2 rounded-xl border border-transparent bg-brand px-4 py-3 text-sm font-semibold text-white hover:bg-brand-hover"
+                  >
+                    Hablar con ventas
+                    <ArrowRight className="size-4" />
+                  </a>
+                </div>
+              </article>
             </div>
           </div>
         </section>
