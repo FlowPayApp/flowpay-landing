@@ -35,7 +35,7 @@ export const PLANS = [
     detail: "Redes de gran escala.",
     price: "$349.000",
     features: [
-      "Clientes sin límite",
+      "Hasta 300 clientes",
       "Todo lo del plan Crecimiento",
       "Varios administradores",
       "Implementación acompañada",
